@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operations Support Office — For Boutique Executive Search Firms</title>
+  <meta name="description" content="Remote operations coordinators for boutique executive search firms. Reclaim 15 partner hours every week." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================
+       CSS CUSTOM PROPERTIES
+    ========================================== */
+    :root {
+      --black:       #0f1419;
+      --dark-2:      #1c2128;
+      --dark-3:      #2a3441;
+      --body-grey:   #768390;
+      --light-grey:  #f6f8fa;
+      --white:       #ffffff;
+      --green:       #2da44e;
+      --green-dark:  #238636;
+      --green-pale:  #d3f0db;
+      --border:      #d0d7de;
+      --border-dark: #30363d;
+
+      /* Warm premium overrides per brief */
+      --cream:       #faf8f4;
+      --warm-border: #e8e2d9;
+      --warm-accent: #b8936a;
+      --warm-pale:   #f5ede3;
+
+      --font-serif:  'DM Serif Display', Georgia, serif;
+      --font-sans:   'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --container:   1100px;
+      --section-v:   88px;
+      --radius-card: 10px;
+      --radius-lg:   14px;
+      --transition:  0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ==========================================
+       RESET & BASE
+    ========================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================
+       TYPOGRAPHY UTILITIES
+    ========================================== */
+    .label {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 4vw, 42px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--black);
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--body-grey);
+      max-width: 560px;
+    }
+
+    /* ==========================================
+       SCROLL FADE-IN
+    ========================================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+
+    /* ==========================================
+       NAVIGATION
+    ========================================== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--warm-border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+      text-decoration: none;
+    }
+    .nav-cta:hover {
+      background: var(--dark-3);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+    .hero {
+      background: var(--cream);
+      padding: 96px 24px 104px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle warm texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(45,164,78,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 20% 110%, rgba(184,147,106,0.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #e8f4ed;
+      border: 1px solid #b8dcca;
+      color: #1a7a3c;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5.5vw, 58px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green-dark);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--body-grey);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 1px 3px rgba(45,164,78,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(45,164,78,0.3);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 13px 20px;
+      border-radius: 7px;
+      border: 1px solid var(--warm-border);
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    .btn-secondary:hover {
+      border-color: var(--black);
+      background: rgba(0,0,0,0.03);
+    }
+
+    .hero-stat-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid var(--warm-border);
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-num span {
+      color: var(--green);
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--body-grey);
+    }
+
+    .hero-stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--warm-border);
+    }
+
+    /* ==========================================
+       CALCULATOR
+    ========================================== */
+    .calculator {
+      background: var(--black);
+      padding: var(--section-v) 24px;
+    }
+
+    .calc-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .calc-header .label {
+      color: #5fa87a;
+      margin-bottom: 14px;
+    }
+
+    .calc-header .section-title {
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .calc-header p {
+      font-size: 17px;
+      color: #8b949e;
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .slider-group {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .slider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .slider-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .slider-label {
+      font-size: 14px;
+      color: #8b949e;
+      line-height: 1.45;
+      max-width: 76%;
+    }
+
+    .slider-value {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--white);
+      min-width: 60px;
+      text-align: right;
+    }
+
+    .slider-value span {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: #8b949e;
+    }
+
+    /* Custom range slider */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: var(--dark-3);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(
+        to right,
+        var(--green) 0%,
+        var(--green) var(--fill, 50%),
+        var(--dark-3) var(--fill, 50%)
+      );
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 4px;
+      background: var(--dark-3);
+      border-radius: 2px;
+    }
+
+    input[type="range"]::-moz-range-progress {
+      height: 4px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 0 3px rgba(45,164,78,0.2);
+      transition: box-shadow 0.15s;
+      margin-top: -7px;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 0 6px rgba(45,164,78,0.25);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--green);
+      box-shadow: 0 0 0 3px rgba(45,164,78,0.2);
+      cursor: pointer;
+    }
+
+    /* Result panel */
+    .calc-result {
+      position: sticky;
+      top: 80px;
+      background: var(--dark-2);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: #8b949e;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .result-number {
+      font-family: var(--font-serif);
+      font-size: 72px;
+      font-weight: 400;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .result-unit {
+      font-size: 18px;
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .result-sub {
+      font-size: 15px;
+      color: #8b949e;
+      line-height: 1.55;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .result-sub strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .result-annual {
+      background: rgba(45,164,78,0.1);
+      border: 1px solid rgba(45,164,78,0.25);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+
+    .result-annual-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #5fa87a;
+      margin-bottom: 4px;
+    }
+
+    .result-annual-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .result-annual-unit {
+      font-size: 14px;
+      color: #8b949e;
+    }
+
+    .calc-cta {
+      width: 100%;
+      margin-top: 24px;
+      padding: 13px;
+      font-size: 15px;
+    }
+
+    /* ==========================================
+       PROBLEM SECTION
+    ========================================== */
+    .problem {
+      background: var(--white);
+      padding: var(--section-v) 24px;
+    }
+
+    .problem-header {
+      margin-bottom: 48px;
+    }
+
+    .problem-header .label {
+      margin-bottom: 14px;
+    }
+
+    .problem-header .section-title {
+      margin-bottom: 14px;
+    }
+
+    .cards-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .cards-2col { grid-template-columns: 1fr; }
+    }
+
+    .problem-card {
+      background: var(--white);
+      border: 1px solid var(--warm-border);
+      border-radius: var(--radius-card);
+      padding: 28px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--green);
+      transition: height var(--transition);
+      border-radius: 0 0 2px 0;
+    }
+
+    .problem-card:hover::before { height: 100%; }
+
+    .problem-card:hover {
+      border-color: rgba(45,164,78,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .problem-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--warm-pale);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .problem-card h3 {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+
+    .problem-card p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--body-grey);
+    }
+
+    /* ==========================================
+       HOW IT WORKS
+    ========================================== */
+    .how {
+      background: var(--light-grey);
+      padding: var(--section-v) 24px;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .how-header .label { margin-bottom: 14px; }
+    .how-header .section-title { margin-bottom: 0; }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      position: relative;
+    }
+
+    /* Connector line between steps */
+    .steps-row::before {
+      content: '';
+      position: absolute;
+      top: 26px;
+      left: calc(16.66% + 16px);
+      right: calc(16.66% + 16px);
+      height: 1px;
+      background: var(--border);
+      z-index: 0;
+    }
+
+    @media (max-width: 640px) {
+      .steps-row { grid-template-columns: 1fr; }
+      .steps-row::before { display: none; }
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-num {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 0 6px rgba(45,164,78,0.12);
+    }
+
+    .step h3 {
+      font-family: var(--font-sans);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 14px;
+      color: var(--body-grey);
+      line-height: 1.65;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* ==========================================
+       PROOF
+    ========================================== */
+    .proof {
+      background: var(--black);
+      padding: var(--section-v) 24px;
+    }
+
+    .proof-header {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .proof-header .label {
+      color: #5fa87a;
+      margin-bottom: 14px;
+    }
+
+    .proof-header .section-title { color: var(--white); margin-bottom: 12px; }
+    .proof-header p { font-size: 17px; color: #8b949e; max-width: 420px; margin: 0 auto; }
+
+    .proof-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .proof-row { grid-template-columns: 1fr; }
+    }
+
+    .proof-item {
+      padding: 36px 32px;
+      border-right: 1px solid var(--border-dark);
+      text-align: center;
+      transition: background var(--transition);
+    }
+
+    .proof-item:last-child { border-right: none; }
+
+    .proof-item:hover { background: var(--dark-2); }
+
+    @media (max-width: 640px) {
+      .proof-item { border-right: none; border-bottom: 1px solid var(--border-dark); }
+      .proof-item:last-child { border-bottom: none; }
+    }
+
+    .proof-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .proof-item h3 {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 9px;
+      line-height: 1.35;
+    }
+
+    .proof-item p {
+      font-size: 14px;
+      color: #8b949e;
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       SERVICES
+    ========================================== */
+    .services {
+      background: var(--white);
+      padding: var(--section-v) 24px;
+    }
+
+    .services-header {
+      margin-bottom: 48px;
+    }
+
+    .services-header .label { margin-bottom: 14px; }
+    .services-header .section-title { margin-bottom: 12px; }
+
+    .cards-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    @media (max-width: 768px) { .cards-3col { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .cards-3col { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--warm-border);
+      border-radius: var(--radius-card);
+      padding: 24px;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+
+    .service-card:hover {
+      border-color: rgba(45,164,78,0.4);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transform: translateY(-2px);
+    }
+
+    .service-icon {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .service-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 13.5px;
+      color: var(--body-grey);
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       FINAL CTA
+    ========================================== */
+    .final-cta {
+      background: var(--cream);
+      padding: var(--section-v) 24px;
+    }
+
+    .cta-box {
+      background: var(--black);
+      border-radius: 14px;
+      padding: 60px 48px;
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(45,164,78,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-box .label {
+      color: #5fa87a;
+      margin-bottom: 18px;
+    }
+
+    .cta-box h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      font-size: 17px;
+      color: #8b949e;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 auto 36px;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 7px;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+
+    .btn-white:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .cta-trust {
+      margin-top: 22px;
+      font-size: 13px;
+      color: #636e7b;
+    }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+    .footer {
+      background: var(--light-grey);
+      border-top: 1px solid var(--warm-border);
+      padding: 36px 24px;
+      text-align: center;
+    }
+
+    .footer-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--body-grey);
+      margin-bottom: 6px;
+    }
+
+    .footer a {
+      font-size: 14px;
+      color: var(--black);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition);
+    }
+
+    .footer a:hover { color: var(--green); }
+
+    /* ==========================================
+       RESPONSIVE OVERRIDES
+    ========================================== */
+    @media (max-width: 768px) {
+      :root { --section-v: 60px; }
+
+      .hero { padding: 72px 24px 80px; }
+
+      .hero h1 { font-size: 36px; }
+      .hero-sub { font-size: 16px; }
+
+      .hero-stat-row { gap: 20px; }
+      .hero-stat-divider { display: none; }
+
+      .calc-result { position: static; }
+
+      .cta-box { padding: 40px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-secondary { text-align: center; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================
+       NAVIGATION
+  ========================================== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="nav-logo">Operations Support Office</div>
+      <a href="https://calendly.com/juwon-ops" class="nav-cta">
+        See If There's Fit
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ==========================================
+       HERO
+  ========================================== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge fade-up">
+        <span class="hero-badge-dot"></span>
+        For Boutique Executive Search Firms
+      </div>
+
+      <h1 class="fade-up">
+        Reclaim <em>15 Partner Hours</em><br/>Every Week
+      </h1>
+
+      <p class="hero-sub fade-up">
+        Operations coordinators who handle calendar coordination, client updates,
+        and CRM management so your partners stay focused on closing searches,
+        not chasing approvals.
+      </p>
+
+      <div class="hero-actions fade-up">
+        <button class="btn-primary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          Calculate Your Time Lost
+        </button>
+        <a href="https://calendly.com/juwon-ops" class="btn-secondary">
+          Book a 10-Minute Call
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stat-row fade-up">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>15</span></div>
+          <div class="hero-stat-label">Partner hours saved per week</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>3-5</span></div>
+          <div class="hero-stat-label">Concurrent searches managed</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span>48h</span></div>
+          <div class="hero-stat-label">To your first coordinator</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       ROI CALCULATOR
+  ========================================== -->
+  <section class="calculator" id="calculator">
+    <div class="container">
+
+      <div class="calc-header fade-up">
+        <div class="label">ROI Calculator</div>
+        <h2 class="section-title">How Much Partner Time Are You Losing?</h2>
+        <p>Drag the sliders to match your firm's reality. The numbers speak for themselves.</p>
+      </div>
+
+      <div class="calc-grid">
+        <!-- Sliders -->
+        <div class="slider-group">
+
+          <div class="slider-item fade-up">
+            <div class="slider-label-row">
+              <span class="slider-label">Hours per week on calendar coordination</span>
+              <span class="slider-value" id="val1">6 <span>hrs</span></span>
+            </div>
+            <input type="range" id="slider1" min="0" max="12" value="6" />
+          </div>
+
+          <div class="slider-item fade-up">
+            <div class="slider-label-row">
+              <span class="slider-label">Hours per week on client updates and reporting</span>
+              <span class="slider-value" id="val2">4 <span>hrs</span></span>
+            </div>
+            <input type="range" id="slider2" min="0" max="12" value="4" />
+          </div>
+
+          <div class="slider-item fade-up">
+            <div class="slider-label-row">
+              <span class="slider-label">Hours per week on CRM and database management</span>
+              <span class="slider-value" id="val3">3 <span>hrs</span></span>
+            </div>
+            <input type="range" id="slider3" min="0" max="12" value="3" />
+          </div>
+
+          <div class="slider-item fade-up">
+            <div class="slider-label-row">
+              <span class="slider-label">Hours per week on approvals and follow-ups</span>
+              <span class="slider-value" id="val4">2 <span>hrs</span></span>
+            </div>
+            <input type="range" id="slider4" min="0" max="12" value="2" />
+          </div>
+
+        </div>
+
+        <!-- Result Display -->
+        <div class="calc-result fade-up">
+          <div class="result-label">You're currently losing</div>
+          <div class="result-number" id="result-weekly">15</div>
+          <div class="result-unit">partner hours per week</div>
+
+          <div class="result-annual">
+            <div class="result-annual-label">That's per year</div>
+            <div class="result-annual-num" id="result-annual">780</div>
+            <div class="result-annual-unit">hours on coordination instead of closing searches</div>
+          </div>
+
+          <p class="result-sub">
+            At a blended partner rate of <strong>£350/hr</strong>, that's
+            <strong id="result-cost">£273,000</strong> in partner time
+            spent on coordination annually.
+          </p>
+
+          <a href="https://calendly.com/juwon-ops" class="btn-primary calc-cta">
+            Book a 10-Minute Call
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       PROBLEM SECTION
+  ========================================== -->
+  <section class="problem">
+    <div class="container">
+
+      <div class="problem-header fade-up">
+        <div class="label">The Breaking Point</div>
+        <h2 class="section-title">When Coordination<br/>Overwhelms Partners</h2>
+        <p class="section-subtitle" style="margin-top:12px;">
+          Most boutique firms hit a bottleneck around 3 to 5 concurrent searches
+          where systematic admin starts consuming partner capacity.
+        </p>
+      </div>
+
+      <div class="cards-2col">
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🗓</div>
+          <h3>Calendar Chaos Across Timezones</h3>
+          <p>Coordinating interviews between London, New York, and Singapore. Managing client calls and stakeholder meetings while candidates reschedule at the last minute.</p>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📋</div>
+          <h3>Client Update Overhead</h3>
+          <p>Manually updating dashboards for 3 to 5 concurrent clients. Chasing approvals. Keeping everyone engaged throughout the search without anything falling through the cracks.</p>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🗃</div>
+          <h3>CRM Maintenance Backlog</h3>
+          <p>Database hygiene falling behind as search volume increases. Candidate tracking becoming unreliable. Progress documentation that should take 10 minutes now takes an hour.</p>
+        </div>
+
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📞</div>
+          <h3>Reference Coordination Bottleneck</h3>
+          <p>Managing background checks and reference calls for high-diligence PE and legal mandates. Evidence compilation that pulls partners away from relationship building.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       HOW IT WORKS
+  ========================================== -->
+  <section class="how">
+    <div class="container">
+
+      <div class="how-header fade-up">
+        <div class="label">Simple Process</div>
+        <h2 class="section-title">How It Works</h2>
+      </div>
+
+      <div class="steps-row">
+
+        <div class="step fade-up">
+          <div class="step-num">1</div>
+          <h3>10-Minute Discovery</h3>
+          <p>Brief call to understand your current coordination challenges and search volume patterns.</p>
+        </div>
+
+        <div class="step fade-up">
+          <div class="step-num">2</div>
+          <h3>Match Within Days</h3>
+          <p>We match you with an operations coordinator who understands executive search workflows and client expectations.</p>
+        </div>
+
+        <div class="step fade-up">
+          <div class="step-num">3</div>
+          <h3>Start Immediately</h3>
+          <p>Your coordinator integrates with your existing tools and processes. No lengthy onboarding or training required.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       PROOF
+  ========================================== -->
+  <section class="proof">
+    <div class="container">
+
+      <div class="proof-header fade-up">
+        <div class="label">Track Record</div>
+        <h2 class="section-title">Proven at Scale</h2>
+        <p>Already supporting high-performing businesses with fully remote operations coordinators.</p>
+      </div>
+
+      <div class="proof-row fade-up">
+
+        <div class="proof-item">
+          <div class="proof-icon">🏦</div>
+          <h3>PE-Focused Search Practices</h3>
+          <p>Managing high-diligence mandates with background checks and evidence compilation.</p>
+        </div>
+
+        <div class="proof-item">
+          <div class="proof-icon">⚖️</div>
+          <h3>Legal and Compliance-Heavy Mandates</h3>
+          <p>Coordinating reference checks and documentation for regulated environments.</p>
+        </div>
+
+        <div class="proof-item">
+          <div class="proof-icon">🌐</div>
+          <h3>International Search Firms</h3>
+          <p>Managing cross-timezone coordination between London, USA, and Asia-Pacific.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SERVICES
+  ========================================== -->
+  <section class="services">
+    <div class="container">
+
+      <div class="services-header fade-up">
+        <div class="label">What We Handle</div>
+        <h2 class="section-title">Systematic Coordination Support</h2>
+        <p class="section-subtitle" style="margin-top:12px;">
+          Everything that keeps your searches moving, handled by coordinators with 5 to 10 years of corporate experience.
+        </p>
+      </div>
+
+      <div class="cards-3col">
+
+        <div class="service-card fade-up">
+          <div class="service-icon">🗓</div>
+          <h3>Calendar Coordination</h3>
+          <p>Interview scheduling, client meetings, and stakeholder calls across multiple timezones without the endless back-and-forth.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">💬</div>
+          <h3>Client Communication</h3>
+          <p>Progress updates, dashboard management, and approval tracking to keep clients engaged throughout the search.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">🗃</div>
+          <h3>CRM Management</h3>
+          <p>Database hygiene, candidate tracking, and systematic record-keeping so nothing slips through.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">📞</div>
+          <h3>Reference Coordination</h3>
+          <p>Background checks, reference calls, and evidence compilation for high-diligence PE and legal mandates.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">📄</div>
+          <h3>Document Management</h3>
+          <p>Contract chasing, offer letter coordination, and compliance documentation for international placements.</p>
+        </div>
+
+        <div class="service-card fade-up">
+          <div class="service-icon">📊</div>
+          <h3>Reporting and Metrics</h3>
+          <p>Search pipeline tracking, weekly progress reports, and client-facing dashboards.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FINAL CTA
+  ========================================== -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="cta-box fade-up">
+        <div class="label">Next Step</div>
+        <h2>See If There's Fit</h2>
+        <p>
+          10-minute call to understand your coordination challenges and explore
+          if dedicated operations support makes sense for your firm.
+        </p>
+        <a href="https://calendly.com/juwon-ops" class="btn-white">
+          Book Your Call
+          <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <div class="cta-trust">No commitment required. 10 minutes, that's it.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+  ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-name">Operations Support Office</div>
+      <a href="/cdn-cgi/l/email-protection#d3b9a6a4bcbd93bca3b6a1b2a7babcbda0a0a6a3a3bca1a7bcb5b5bab0b6fdb0bcbe"><span class="__cf_email__" data-cfemail="177d62607879577867726576637e787964646267677865637871717e74723974787a">[email&#160;protected]</span></a>
+    </div>
+  </footer>
+
+
+  <!-- ==========================================
+       JAVASCRIPT
+  ========================================== -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    /* ---- ROI Calculator ---- */
+    const sliders = [
+      { input: document.getElementById('slider1'), display: document.getElementById('val1') },
+      { input: document.getElementById('slider2'), display: document.getElementById('val2') },
+      { input: document.getElementById('slider3'), display: document.getElementById('val3') },
+      { input: document.getElementById('slider4'), display: document.getElementById('val4') },
+    ];
+
+    const resultWeekly = document.getElementById('result-weekly');
+    const resultAnnual  = document.getElementById('result-annual');
+    const resultCost    = document.getElementById('result-cost');
+    const PARTNER_RATE  = 350; // £ per hour
+
+    function updateFill(slider) {
+      const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+      slider.style.setProperty('--fill', pct + '%');
+    }
+
+    function animateNumber(el, target, suffix) {
+      const start   = parseInt(el.textContent.replace(/[^0-9]/g, '')) || 0;
+      const diff    = target - start;
+      const dur     = 300;
+      const startTs = performance.now();
+
+      function step(ts) {
+        const progress = Math.min((ts - startTs) / dur, 1);
+        const ease     = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const cur      = Math.round(start + diff * ease);
+        el.textContent = (suffix || '') + cur.toLocaleString('en-GB');
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function calcUpdate() {
+      const total  = sliders.reduce((sum, s) => sum + parseInt(s.input.value), 0);
+      const annual = total * 52;
+      const cost   = annual * PARTNER_RATE;
+
+      animateNumber(resultWeekly, total, '');
+      animateNumber(resultAnnual, annual, '');
+      resultCost.textContent = '£' + cost.toLocaleString('en-GB');
+    }
+
+    sliders.forEach(({ input, display }) => {
+      updateFill(input);
+
+      input.addEventListener('input', () => {
+        display.innerHTML = `${input.value} <span>hrs</span>`;
+        updateFill(input);
+        calcUpdate();
+      });
+    });
+
+    calcUpdate(); // init
+
+
+    /* ---- Scroll Fade-In ---- */
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+       
